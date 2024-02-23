@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD OPERATION PROGRAM</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+<h1>MEDICAL BLOOD DONATION <br>CONSENT FORM</h1>
+
+<div class="main">
+    <label>Name</label><br>
+    <input type="text" placeholder="Enter your full name" id="name"><br><br>
+    <label>Phone Number</label><br>
+    <input type="number" placeholder="Enter your Number" id="number"><br><br>
+    <label>Email ID</label><br>
+    <input type="email" placeholder="Enter your Email Id" id="email"><br><br>
+    <label>Have You Donated Previously?</label><br>
+    <input type="radio" name="option" id="yes">Yes
+    <input type="radio" name="option" class="option" id="no">No <br><br>
+    <button type="submit" id="button">Submit</button>
+</div>
+<div id="addingdatadiv">
+
+</div>
+<script>
+let name = document.getElementById("name");
+let number = document.getElementById("number");
+let email = document.getElementById("email");
+let yes = document.getElementById("yes");
+let no = document.getElementById("no");
+let button = document.getElementById("button");
+let addingdatadiv = document.getElementById("addingdatadiv");
+
+
+
+button.addEventListener("click" , function crudoperation() {
+let newdiv = document.createElement("div");
+addingdatadiv.appendChild(newdiv);
+
+let newinputtagforname = document.createElement("input");
+newinputtagforname.value = name.value
+newinputtagforname.setAttribute("readonly", "readonly")
+newdiv.appendChild(newinputtagforname);
+
+let newinputtagfornumber= document.createElement("input");
+newinputtagfornumber.value = number.value
+newinputtagfornumber.setAttribute("readonly", "readonly")
+newdiv.appendChild(newinputtagfornumber);
+
+let newinputtagforemail= document.createElement("input");
+newinputtagforemail.value = email.value
+newinputtagforemail.setAttribute("readonly", "readonly")
+newdiv.appendChild(newinputtagforemail);
+
+let newinputtagforyes= document.createElement("input");
+newinputtagforyes.value = yes.value
+newinputtagforyes.setAttribute("readonly", "readonly")
+newdiv.appendChild(newinputtagforyes);
+
+// let newinputtagforno= document.createElement("input");
+// newinputtagforno.value = no.value
+// newinputtagforno.setAttribute("readonly", "readonly")
+// newdiv.appendChild(newinputtagforno);
+
+let deletebutton = document.createElement("button");
+deletebutton.innerHTML = "Delete";
+newdiv.appendChild(deletebutton)
+
+deletebutton.addEventListener("click",()=>{
+    newdiv.style.display="none";
+})
+
+let editbutton = document.createElement("button");
+editbutton.innerHTML = "Edit";
+newdiv.appendChild(editbutton)
+
+editbutton.addEventListener("click" , ()=>{
+    newinputtagforname.removeAttribute("readonly", "readonly")
+    newinputtagfornumber.removeAttribute("readonly", "readonly")
+    newinputtagforemail.removeAttribute("readonly", "readonly")
+    newinputtagforyes.removeAttribute("readonly", "readonly")
+})
+
+let savebutton = document.createElement("button");
+savebutton.innerHTML = "Save";
+newdiv.appendChild(savebutton) 
+
+
+savebutton.addEventListener("click" , ()=>{
+    newinputtagforname.setAttribute("readonly", "readonly")
+    newinputtagfornumber.setAttribute("readonly", "readonly")
+    newinputtagforemail.setAttribute("readonly", "readonly")
+    newinputtagforyes.setAttribute("readonly", "readonly")
+})
+
+})
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
